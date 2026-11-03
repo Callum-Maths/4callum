@@ -1,0 +1,82 @@
+Cell #1
+Variable definitions
+
+Cell #2
+mapping (-infty,infty)->(0,1)
+
+Cell #3
+inverse mapping
+
+Cell #4
+free energy defintion fe
+
+Cell #5
+Derivative gradfe of fe, obtained by automatic differentiation
+
+Cell #6
+Hessian Hfe of fe, obtained by automatic differentiation
+
+Cell #7
+evmin find eigenvalue of with smalles modules of matrix G which is the projection of 
+Hfe onto the space that satisfies electroneutrality and no void condition.
+
+Cell #8
+Build the condition for 2 phase equilibrium.
+Condition 16 and 17 enforce a peptide concentration (the 1.5mM in Souradip's experiments) 
+and the fact that the salt added balances the anions and cations. So the total amount of
+salt in the two phases combined must preserve this balance.
+
+Cell #9 & Cell #10 & Cell 11
+These implements a function and 'case' structures to make it easy to reuse the same code for
+different materials. It also makes it easier to reorder initial data for Newton iterations.
+This became necessary, because earlier versions of my code used a different convention. This
+is sth that can be eliminated, but I wanted to stay consistent with these earlier codes of mine.
+
+Cell #12
+Plot zero contour of evmin as linear stability threshold (spinodal)
+This cell contains a lot of commented out code that could be removed/cleaned up.
+
+Cell #13
+Calculate and output inital point for bifurcation tracking
+
+Cell #14
+Track the solution branch using lambda as the bifurcation parameter
+[The decision to us lambda as the bif parm is actually made in cell #13, 
+in the statement ``(@optic _.lambda),'', through probdlen that is passed on to continuation
+in line 20 of cell #14, where the actual computation is carried out.] 
+
+
+
+Cell #15
+Generate some diagnostic output (could be removed/commented out, but is useful when things
+go wrong)
+
+Cell #16
+plot the branch for the phiplus1 variable as a function of lambda
+
+Cell #17
+This code facilitations comparison with data from Giulia's code,
+called mgcl2_violet_branch_data.jld2 here. comp=0 means this cell is currently switched off.
+The name of the file would need to be adapated 
+and data from Giulia's code generated first.
+
+Cell #18 & #19
+
+Plot the phase I components (the coexistence boundaries) and of phase II (note the phase II solution are not in the plane characterised by the salt stochiometry)
+
+
+Cell #20
+diagnostics
+
+Cell #21
+Now switch to KM as bifurcation parameter (by defining probdlen2 in line 22)
+
+Cell #22, #23, #24
+Plot results
+
+Cell #25
+Save contour plot for evmin to file for inspection by external graphics tool
+
+Cell #25
+Save boundary of coexistence domain to file for inspection by external graphics tool
+
